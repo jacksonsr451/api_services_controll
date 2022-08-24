@@ -4,7 +4,7 @@ export default class IDObjectValue {
     id: string
 
     constructor(id?: string) {
-        this.id = id ? id : uuid4.toString()
+        this.id = id ? id : uuid4()
     }
 
     get(): string {

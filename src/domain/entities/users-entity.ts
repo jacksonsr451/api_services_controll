@@ -1,6 +1,7 @@
 import CreatedAtObjectValue from "../objects_values/created_at_object_value"
 import IDObjectValue from "../objects_values/id_object_value"
 import UpdatedAtObjectValue from "../objects_values/update_at_object_value"
+import BaseEntity from "./base-entity"
 
 type RequestEntity = {
     id?: string
@@ -11,15 +12,13 @@ type RequestEntity = {
     updated_at?: string
 }
 
-export default class UsersEntity {
-    id: string
-    username: string
-    password: string
-    email: string
-    created_at: string
-    updated_at: string
-
+export default class UsersEntity extends BaseEntity {
+    private username: string
+    private password: string
+    private email: string
+    
     constructor(request: RequestEntity) {
+        super()
         this.id = new IDObjectValue(request.id).get()
         this.username = request.username
         this.password = request.password
